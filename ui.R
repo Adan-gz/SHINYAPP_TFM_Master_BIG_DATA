@@ -21,16 +21,7 @@ ui <- fluidPage( title = 'RomenAdanGz - TFM Big Data',
                  lang = 'es', 
                  theme = bslib::bs_theme(bootswatch = 'minty', primary = '#f68185'),
 
-                 
-                 
-# navbarPage - title ------------------------------------------------------
-                 
- navbarPage( id = 'tabs',
-             
-             footer =  includeMarkdown("www/footer.md"),
-             
-             
-             tags$style(HTML("
+                 tags$style(HTML("
                              .center {
                                 display: block;
                                 margin-left: auto;
@@ -38,10 +29,66 @@ ui <- fluidPage( title = 'RomenAdanGz - TFM Big Data',
                                 margin-bottom: 0px;
                                 padding-bottom: 0px;
                                 width: 50%;
-                                }
-                                " ) ),
+                                  }") ),
+                 
+                 tags$style(HTML("
+                  .navbar-light .navbar-nav .nav-tabs>li>a, 
+                  .navbar-light .navbar-nav .nav-pills>li>a,
+                  .navbar.navbar-default .navbar-nav .nav-link,
+                  .navbar.navbar-default .navbar-nav .nav-tabs>li>a, 
+                  .navbar.navbar-default .navbar-nav .nav-pills>li>a,
+                  .navbar-light ul.nav.navbar-nav>li>a,
+                  .navbar.navbar-default ul.nav.navbar-nav>li>a { 
+                     font-weight: bold;
+                     color: #d88890;
+                    
+                   }")),
+                 
+                 tags$style(HTML("
+                  .navbar-light .navbar-nav .show>.nav-link,
+                  .navbar-light .navbar-nav .in>.nav-link,
+                  .navbar-light .navbar-nav .nav-tabs>li.show>a,
+                  .navbar-light .navbar-nav .nav-tabs>li.in>a,
+                  .navbar-light .navbar-nav .nav-pills>li.show>a,
+                  .navbar-light .navbar-nav .nav-pills>li.in>a,
+                  .navbar.navbar-default .navbar-nav .show>.nav-link,
+                  .navbar.navbar-default .navbar-nav .in>.nav-link,
+                  .navbar.navbar-default .navbar-nav .nav-tabs>li.show>a,
+                  .navbar.navbar-default .navbar-nav .nav-tabs>li.in>a,
+                  .navbar.navbar-default .navbar-nav .nav-pills>li.show>a,
+                  .navbar.navbar-default .navbar-nav .nav-pills>li.in>a, 
+                  .navbar-light ul.nav.navbar-nav>li.show>a,
+                  .navbar-light ul.nav.navbar-nav>li.in>a,
+                  .navbar.navbar-default ul.nav.navbar-nav>li.show>a,
+                  .navbar.navbar-default ul.nav.navbar-nav>li.in>a,
+                   .navbar-light .navbar-nav .nav-link.active,
+                  .navbar-light .navbar-nav .nav-tabs>li>a.active,
+                  .navbar-light .navbar-nav .nav-pills>li>a.active,
+                  .navbar.navbar-default .navbar-nav .nav-link.active,
+                   .navbar.navbar-default .navbar-nav .nav-tabs>li>a.active,
+                  .navbar.navbar-default .navbar-nav .nav-pills>li>a.active, .navbar-light ul.nav.navbar-nav>li>a.active, .navbar.navbar-default ul.nav.navbar-nav>li>a.active
+                 
+                  { 
+                     font-weight: bold;
+                     color: #c14f5a;
+                    
+                   }")),
+                 
+                 tags$style(HTML("
+                  .dropdown-item, .dropdown-menu>li>a { color: #d88890;  }")),
+                 
+                 tags$style(HTML("
+                  .navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand { color: #ca0101;  }")),
+
+                 
+                                  
+# navbarPage - title ------------------------------------------------------
+                 
+ navbarPage( id = 'tabs',
              
-             title ='Predicción del número de casos de dengue semanales    ', 
+             footer =  includeMarkdown("www/footer.md"),
+
+             title ='Predicción del número de casos de dengue semanales', 
 
 
 # Information -------------------------------------------------------------

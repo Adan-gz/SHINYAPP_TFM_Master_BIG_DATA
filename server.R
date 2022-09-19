@@ -89,21 +89,40 @@ server <- function(input, output) {
   
   output$file_head <- renderDataTable( datatable_format(file()) )
   
-  file_check <- reactive(  check_data(file()) )
+  file_check <- reactive({
+    req(input$file)
+    check_data(file())
+  }   )
   
   output$file_checks <- renderUI(  flextable::htmltools_value( flextable_checks(file_check()),
                                     ft.shadow = F, ft.htmlscroll = F) ) 
   
 ## resumen -----------------------------------------------------------------
 
-  output$p_temp_sj <- renderPlot( plot_evol(file = file(),'sj','San Juan') )
-  output$p_temp_iq <- renderPlot( plot_evol(file = file(),'iq','Iquitos') )
+  output$p_temp_sj <- renderPlot({
+    req(input$file)
+    plot_evol(file = file(),'sj','San Juan') })
   
-  output$p_dist_sj <- renderPlot( plot_den(file = file(),'sj','San Juan') )
-  output$p_dist_iq <- renderPlot( plot_den(file = file(),'iq','Iquitos') )
+  output$p_temp_iq <- renderPlot({
+    req(input$file)
+    plot_evol(file = file(),'iq','Iquitos') })
   
-  output$p_pca_sj <- renderPlot( plot_pca(file = file(),'sj','San Juan' ) )
-  output$p_pca_iq <- renderPlot( plot_pca(file = file(),'iq','Iquitos') )
+  
+  output$p_dist_sj <- renderPlot({
+    req(input$file)
+    plot_den(file = file(),'sj','San Juan') })
+  
+  output$p_dist_iq <- renderPlot({
+    req(input$file)
+    plot_den(file = file(),'iq','Iquitos') })
+  
+  output$p_pca_sj <- renderPlot({
+    req(input$file)
+    plot_pca(file = file(),'sj','San Juan' ) })
+  
+  output$p_pca_iq <- renderPlot({
+    req(input$file)
+    plot_pca(file = file(),'iq','Iquitos') })
     
   
 
@@ -111,6 +130,7 @@ server <- function(input, output) {
   
   
   predicciones <- reactive({
+    req(input$file)
     
     if( attr(file_check(), 'do_pred') == 'Sí' ){
       ### SAN JUAN

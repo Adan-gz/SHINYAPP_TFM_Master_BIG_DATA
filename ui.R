@@ -77,8 +77,8 @@ ui <- fluidPage( title = 'RomenAdanGz - TFM Big Data',
                  tags$style(HTML("
                   .dropdown-item, .dropdown-menu>li>a { color: #d88890;  }")),
                  
-                 tags$style(HTML("
-                  .navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand { color: #ca0101;  }")),
+                 # tags$style(HTML("
+                 #  .navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand { color: #ca0101;  }")),
 
                  
                                   
